@@ -14,7 +14,7 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">My Profile</a></li>
-                            <li><a href="<?php echo base_url('user/logout'); ?>">Logout</a></li>
+                            <li><a href="<?php echo base_url('index.php/user/logout'); ?>">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
