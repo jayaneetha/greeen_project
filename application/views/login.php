@@ -4,12 +4,12 @@ $this->load->view('partial/header');
 </head>
 <body>
 <div class="container">
-    <div style="margin-top: 80px" class="row clearfix">
-        <div class="col-lg-8">
+    <div style="margin-top: 20px" class="row clearfix">
+        <div class="col-lg-8" >
             <h1>Greeen Project </br>
                 <small>Collector Login</small>
             </h1>
-            <img src="<?php echo base_url('assests/images/login-background.png'); ?>"
+            <img style="margin-top: 50px" src="<?php echo base_url('assests/images/login-background.png'); ?>"
                  class="img-responsive pull-right"/>
         </div>
         <div class="col-lg-4 well" style="margin-top: 150px">

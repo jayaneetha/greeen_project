@@ -34,6 +34,27 @@ $this->load->view('partial/header');
     </div>
     <div class="row">
         <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Collection Requests <br/>
+                        <small>The waste collection requests placed by the households and Greeen Bins are listed here
+                            according to the type. Enter the PIN receiving from the requester to complete the collection process.
+                        </small>
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="btn-group pull-left" style="padding-bottom: 5px">
+                        <button data-type="all" class="btn-type btn btn-default">All</button>
+                        <button data-type="paper" class="btn-type btn btn-default">Paper</button>
+                        <button data-type="glass" class="btn-type btn btn-default">Glass</button>
+                        <button data-type="plastic" class="btn-type btn btn-default">Plastic</button>
+                        <button data-type="metal" class="btn-type btn btn-default">Metal</button>
+                        <button data-type="ewaste" class="btn-type btn btn-default">e-Waste</button>
+                    </div>
+                </div>
+            </div>
             <table id="waste_locations" class="table table-responsive table-bordered">
                 <thead>
                 <td>Type</td>
@@ -47,19 +68,8 @@ $this->load->view('partial/header');
             </table>
         </div>
         <div class="col-lg-6">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="btn-group pull-right" style="padding-bottom: 5px">
-                        <button data-type="all" class="btn-type btn btn-default">All</button>
-                        <button data-type="paper" class="btn-type btn btn-default">Paper</button>
-                        <button data-type="glass" class="btn-type btn btn-default">Glass</button>
-                        <button data-type="plastic" class="btn-type btn btn-default">Plastic</button>
-                        <button data-type="metal" class="btn-type btn btn-default">Metal</button>
-                        <button data-type="ewaste" class="btn-type btn btn-default">e-Waste</button>
-                    </div>
-                </div>
-            </div>
-            <div style="height: 450px;" class="well well-sm" id="map-canvas"></div>
+
+            <div style="height: 500px;" class="well well-sm" id="map-canvas"></div>
         </div>
     </div>
 </div>
@@ -134,7 +144,7 @@ $this->load->view('partial/header');
 
     function set_table_body(type, created_at, address, id) {
         newRowContent = "<tr><td>" + type + "</td><td>" + created_at + "</td><td>" + address + "</td>" +
-        "<td><button data-id='" + id + "' class='collected_btn btn btn-success'><span class='glyphicon glyphicon-ok'></span> Collected</button></td>" +
+        "<td><button data-id='" + id + "' class='collected_btn btn btn-success'><span class='glyphicon glyphicon-ok'></span> Mark as Collected</button></td>" +
         "</tr>";
         $("#waste_locations tbody").append(newRowContent);
     }
