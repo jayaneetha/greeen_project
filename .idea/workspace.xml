@@ -105,8 +105,8 @@
       <file leaf-file-name="ajax.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.50236964" vertical-offset="388" max-vertical-offset="825">
-              <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.57345974" vertical-offset="388" max-vertical-offset="840">
+              <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -529,7 +529,13 @@
       <option name="project" value="LOCAL" />
       <updated>1434225037188</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added Ajax API">
+      <created>1434225083657</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1434225083657</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -857,8 +863,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50236964" vertical-offset="388" max-vertical-offset="825">
-          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.57345974" vertical-offset="388" max-vertical-offset="840">
+          <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
           <folding />
         </state>
       </provider>
