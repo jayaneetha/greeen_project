@@ -33,12 +33,13 @@ $this->load->view('partial/header');
         <?php $this->load->view('partial/navbar', $user); ?>
     </div>
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-7">
             <div class="row">
                 <div class="col-lg-12">
                     <h3>Collection Requests <br/>
                         <small>The waste collection requests placed by the households and Greeen Bins are listed here
-                            according to the type. Enter the PIN receiving from the requester to complete the collection process.
+                            according to the type. Enter the PIN receiving from the requester to complete the collection
+                            process.
                         </small>
                     </h3>
                 </div>
@@ -58,7 +59,8 @@ $this->load->view('partial/header');
             <table id="waste_locations" class="table table-responsive table-bordered">
                 <thead>
                 <td>Type</td>
-                <td>Added on</td>
+                <td>Date</td>
+                <td>Time</td>
                 <td>Address</td>
                 <td>Action</td>
                 </thead>
@@ -67,7 +69,7 @@ $this->load->view('partial/header');
                 </tbody>
             </table>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-5">
 
             <div style="height: 500px;" class="well well-sm" id="map-canvas"></div>
         </div>
@@ -126,6 +128,10 @@ $this->load->view('partial/header');
         $('#id').val(item_id);
         $('#myModal').modal('toggle');
     });
+    $(document).on('click', '.view_point', function () {
+        var index = $(this).data('index');
+        map.setCenter(markers[index].getPosition());
+    });
 
     function set_markers(type) {
         $.getJSON("<?= base_url("index.php/user/get_waste_locations/"); ?>", {
@@ -137,24 +143,25 @@ $this->load->view('partial/header');
                 var myLatlng = new google.maps.LatLng(j[i].longitude, j[i].latitude);
                 addMarker(myLatlng);
                 setAllMap(map);
-                update_table(j[i].longitude, j[i].latitude, j[i].type, j[i].created_at, j[i].id);
+                update_table(j[i].longitude, j[i].latitude, j[i].type, j[i].created_at, j[i].id, i);
             }
         });
     }
 
-    function set_table_body(type, created_at, address, id) {
-        newRowContent = "<tr><td>" + type + "</td><td>" + created_at + "</td><td>" + address + "</td>" +
-        "<td><button data-id='" + id + "' class='collected_btn btn btn-success'><span class='glyphicon glyphicon-ok'></span> Mark as Collected</button></td>" +
+    function set_table_body(type, created_at, address, id, i) {
+        newRowContent = "<tr><td>" + type + "</td><td>" + created_at.substring(0, 10) + "</td><td>" + created_at.substring(11) + "</td><td>" + address + "</td>" +
+        "<td><div class='btn-group'><button data-id='" + id + "' class='collected_btn btn btn-success btn-sm'><span class='glyphicon glyphicon-ok'></span> Mark as Collected</button>" +
+        "<button data-index='" + i + "' style='margin-left:5px' class='view_point btn btn-default btn-sm'><span class='glyphicon glyphicon-play'></span></button></div></td>" +
         "</tr>";
         $("#waste_locations tbody").append(newRowContent);
     }
 
-    function update_table(lng, lat, type, created_at, id) {
+    function update_table(lng, lat, type, created_at, id, i) {
         $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
             latlng: lng + "," + lat,
             sensor: true
         }, function (j) {
-            set_table_body(type, created_at, j.results[0].formatted_address, id);
+            set_table_body(type, created_at, j.results[0].formatted_address, id, i);
         });
     }
 
