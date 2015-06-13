@@ -112,29 +112,8 @@ $this->load->view('partial/header');
     });
 
     $(document).on('click', '.collected_btn', function () {
-//        $.ajax({
-//            type: "POST",
-//            dataType: 'json',
-//            url: "<?php //echo base_url('administrator/get_single_classroom/'); ?>//",
-//            data: {classroom_id: classroom},
-//            success: function (data) {
-//                //console.log(data);
-//                //console.log(data.total);
-//                for (var i = 0; i < data.total.length; i++) {
-//                    var school_name = data.total[i].sch_id;
-//                    $("select option").filter(function () {
-//                        //may want to use $.trim in here
-//                        return $(this).val() == school_name;
-//                    }).attr('selected', true);
-//                    $('#classroom_name').val(data.total[i].classroom_name);
-//                    $('#class_teacher_name').val(data.total[i].teacher_name);
-//                    $('#classroom_id').val(data.total[i].classroom_id);
-//                }
-//                ;
-//
-//            }
-//        });
-
+        var item_id = $(this).data('id');
+        $('#id').val(item_id);
         $('#myModal').modal('toggle');
     });
 
@@ -155,7 +134,7 @@ $this->load->view('partial/header');
 
     function set_table_body(type, created_at, address, id) {
         newRowContent = "<tr><td>" + type + "</td><td>" + created_at + "</td><td>" + address + "</td>" +
-        "<td><button class='collected_btn btn btn-success'><span class='glyphicon glyphicon-ok'></span> Collected</button></td>" +
+        "<td><button data-id='" + id + "' class='collected_btn btn btn-success'><span class='glyphicon glyphicon-ok'></span> Collected</button></td>" +
         "</tr>";
         $("#waste_locations tbody").append(newRowContent);
     }

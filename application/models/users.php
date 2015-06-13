@@ -79,7 +79,8 @@ class Users extends CI_Model
     }
 
     public function set_item_collected($id){
-
+        $this->db->where('id',$id);
+        $this->db->update('individual',array('collected'=>1));
     }
 
 }

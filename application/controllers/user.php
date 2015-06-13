@@ -189,9 +189,10 @@ class User extends CI_Controller
         $id = $this->input->post("id");
         $PIN = $this->input->post("PIN");
         $this->load->model('users');
-        if($PIN == $this->users->get_PIN($id)){
-
+        if ($PIN == $this->users->get_PIN($id)) {
+            $this->users->set_item_collected($id);
         }
+        redirect('user/dashboard', 'refresh');
 
     }
 
