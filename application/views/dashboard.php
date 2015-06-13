@@ -142,7 +142,6 @@ $this->load->view('partial/header');
     function update_table(lng, lat, type, created_at, id) {
         $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
             latlng: lng + "," + lat,
-            key: "AIzaSyCwzcJ-f3DSVnAuTLE0zpTw24Mx2e5G1LM",
             sensor: true
         }, function (j) {
             set_table_body(type, created_at, j.results[0].formatted_address, id);
