@@ -38,9 +38,7 @@ class Ajax extends CI_Controller
     public function enter_pin()
     {
         $id = $this->input->post("id");
-
         $PIN = $this->input->post("pin");
-        die($PIN);
         if ($PIN == $this->users->get_PIN($id)) {
             $this->users->set_item_collected($id);
             echo json_encode(array('operation' => 'success'));
