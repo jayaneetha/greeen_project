@@ -96,5 +96,15 @@ class Users extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('individual', array('collected' => 1));
     }
+    public function insert(){
+        $data = array(
+            'gtype'=>1,
+            'assigned'=>2,
+            'sessionid'=>999,
+            'pin'=>9999,
+            'sms'=>0
+        );
+        $this->db->insert('individual',$data);
+    }
 
 }
