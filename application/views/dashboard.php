@@ -61,7 +61,7 @@ $this->load->view('partial/header');
                 <td class="text-center">Type</td>
                 <td class="text-center">Date</td>
                 <td class="text-center">Time</td>
-                <td class="text-center" style="width: 225px;">Address</td>
+                <td class="text-center" style="width: 118px;">Address</td>
                 <td class="text-center">Action</td>
                 </thead>
                 <tbody>
