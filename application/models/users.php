@@ -96,12 +96,31 @@ class Users extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('individual', array('collected' => 1));
     }
-    public function insert(){
+
+    public function insert_session($lng, $lat, $gcid)
+    {
+        $sessionid = rand(100, 900);
+
         $data = array(
-            'gtype'=>1,
+            'assigned' => $gcid,
+            'sessionid' => $sessionid,
+            'tel' => '0767848343',
+            'menu' => 1,
+            'longitude' => $lng,
+            'latitude' => $lat,
+        );
+        $this->db->insert('sessions', $data);
+        return $sessionid;
+    }
+
+    public function insert($type, $sessionid)
+    {
+        $pin = rand(1000, 9999);
+        $data = array(
+            'gtype'=>$type,
             'assigned'=>2,
-            'sessionid'=>999,
-            'pin'=>9999,
+            'sessionId'=>$sessionid,
+            'pin'=>$pin,
             'sms'=>0
         );
         $this->db->insert('individual',$data);

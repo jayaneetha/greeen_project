@@ -46,4 +46,17 @@ class Ajax extends CI_Controller
             echo json_encode(array('operation' => 'wrong_pin'));
         }
     }
+
+    public function insert()
+    {
+        $lng = $this->insert->post('lng');
+        $lat = $this->insert->post('lat');
+        $gcid = $this->insert->post('gcid');
+        $type = $this->insert->post('type');
+
+        $this->load->model('users');
+        $sessionid = $this->users->insert_session($lng, $lat, $gcid);
+        $this->users->insert($type, $sessionid);
+        redirect('user', 'refresh');
+    }
 }

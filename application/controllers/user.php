@@ -241,10 +241,6 @@ class User extends CI_Controller
 
     }
 
-    public function insert_dummy(){
-        $this->load->model('users');
-        $this->users->insert();
-        redirect('user','refresh');
-    }
+
 
 }
