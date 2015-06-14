@@ -43,6 +43,22 @@ class User extends CI_Controller
         }
     }
 
+    public function dashboard_bin()
+    {
+        session_start();
+        $this->load->library('session');
+        if ($this->session->userdata('logged_in') == FALSE) {
+            $this->load->view('login');
+        } else {
+            $gcid = $this->session->userdata('id');
+            $this->load->model('users');
+            $userDetails = $this->users->get_user_details($gcid);
+            $this->load->view('dashboard_bin', array(
+                'user' => $userDetails,
+            ));
+        }
+    }
+
     public function register_collector()
     {
         if ($this->input->post('firstName')) {
