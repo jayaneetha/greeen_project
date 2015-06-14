@@ -88,7 +88,7 @@ $this->load->view('partial/header');
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Enter PIN<br><small>Please enter the PIN received by the requester on receiving garbage.</small></h4>
             </div>
-            <form action="<?php echo base_url('user/enterPIN'); ?>" method="POST">
+            <form action="<?php echo base_url('index.php/user/enterPIN'); ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="">PIN:</label>
