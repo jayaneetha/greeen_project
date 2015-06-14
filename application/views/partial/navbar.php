@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <a class="" href="#"><img src="<?php echo base_url('assests/images/Logo.png') ?>" class="img-responsive"
+                <a class="" href="<?php echo base_url('index.php'); ?>"><img src="<?php echo base_url('assests/images/Logo.png') ?>" class="img-responsive"
                                           width="150px"/></a>
             </div>
             <div class="col-md-8"><h1 class="text-center">Collector Dashboard</h1></div>

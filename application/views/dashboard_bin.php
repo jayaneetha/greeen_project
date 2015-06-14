@@ -36,10 +36,9 @@ $this->load->view('partial/header');
         <div class="col-lg-7 col-md-7">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3>Collection Requests <br/>
-                        <small>The waste collection requests placed by the households and Greeen Bins are listed here
-                            according to the type. Enter the PIN receiving from the requester to complete the collection
-                            process.
+                    <h3>Greeen Bins <br/>
+                        <small>The waste collection requests placed by the Greeen Bins are listed here
+                            according to the type.
                         </small>
                     </h3>
                 </div>
@@ -85,7 +84,9 @@ $this->load->view('partial/header');
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Enter PIN<br><small>Please enter the PIN received by the requester on receiving garbage.</small></h4>
+                <h4 class="modal-title" id="myModalLabel">Enter PIN<br>
+                    <small>Please enter the PIN received by the requester on receiving garbage.</small>
+                </h4>
             </div>
             <form action="<?php echo base_url('user/enterPIN'); ?>" method="POST">
                 <div class="modal-body">
@@ -137,26 +138,18 @@ $this->load->view('partial/header');
     });
 
     function set_markers(type) {
-        $.getJSON("<?= base_url("index.php/user/get_waste_locations/"); ?>", {
+        $.getJSON("<?= base_url("index.php/user/get_bin_locations/"); ?>", {
             type: type,
             gcid: <?php echo $user->gcid; ?>,
             ajax: 'true'
         }, function (j) {
             for (var i = 0; i < j.length; i++) {
-                var myLatlng = new google.maps.LatLng(j[i].longitude, j[i].latitude);
+                var myLatlng = new google.maps.LatLng(j[i].lng, j[i].lat);
                 addMarker(myLatlng);
                 setAllMap(map);
-                update_table(j[i].longitude, j[i].latitude, j[i].type, j[i].created_at, j[i].id, i);
+                update_table(j[i].lng, j[i].lat, j[i].type, j[i].created_at, j[i].idbin_tb, i);
             }
         });
-    }
-
-    function set_table_body(type, created_at, address, id, i) {
-        newRowContent = "<tr><td>" + type + "</td><td>" + created_at.substring(0, 10) + "</td><td>" + created_at.substring(11) + "</td><td>" + address + "</td>" +
-        "<td><div class='btn-group'><button data-id='" + id + "' class='collected_btn btn btn-success btn-sm'><span class='glyphicon glyphicon-ok'></span> Mark as Collected</button>" +
-        "<button data-index='" + i + "' style='margin-left:5px' class='view_point btn btn-default btn-sm'><span class='glyphicon glyphicon-play'></span></button></div></td>" +
-        "</tr>";
-        $("#waste_locations tbody").append(newRowContent);
     }
 
     function update_table(lng, lat, type, created_at, id, i) {
@@ -168,11 +161,20 @@ $this->load->view('partial/header');
         });
     }
 
+    function set_table_body(type, created_at, address, id, i) {
+        newRowContent = "<tr><td>" + type + "</td><td>" + created_at.substring(0, 10) + "</td><td>" + created_at.substring(11) + "</td><td>" + address + "</td>" +
+        "<td><div class='btn-group'><button data-id='" + id + "' class='collected_btn btn btn-success btn-sm'><span class='glyphicon glyphicon-ok'></span> Mark as Collected</button>" +
+        "<button data-index='" + i + "' style='margin-left:5px' class='view_point btn btn-default btn-sm'><span class='glyphicon glyphicon-play'></span></button></div></td>" +
+        "</tr>";
+        $("#waste_locations tbody").append(newRowContent);
+    }
+
     function addMarker(location) {
         var marker = new google.maps.Marker({
             position: location,
             animation: google.maps.Animation.DROP,
             map: map,
+            icon: '<?php echo base_url('assests/images/pin-blue.png'); ?>'
         });
         markers.push(marker);
     }

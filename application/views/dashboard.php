@@ -53,6 +53,7 @@ $this->load->view('partial/header');
                         <button data-type="plastic" class="btn-type btn btn-default">Plastic</button>
                         <button data-type="metal" class="btn-type btn btn-default">Metal</button>
                         <button data-type="ewaste" class="btn-type btn btn-default">e-Waste</button>
+                        <a href="<?php echo base_url('index.php/user/dashboard_bin'); ?>" class="btn-type btn btn-default">Greeen Bin Only</a>
                     </div>
                 </div>
             </div>
