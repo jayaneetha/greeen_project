@@ -102,7 +102,6 @@ class Users extends CI_Model
         $sessionid = rand(100, 900);
 
         $data = array(
-            'assigned' => $gcid,
             'sessionid' => $sessionid,
             'tel' => '0767848343',
             'menu' => 1,
