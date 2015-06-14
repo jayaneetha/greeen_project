@@ -72,7 +72,7 @@ class Users extends CI_Model
 
     public function get_bin_locations($type_id, $gcid)
     {
-        $this->db->select('bin_tb.idbin_tb, bin_tb.bin_id, bin_tb.gcid, bin_tb.lat, bin_tb.lng, bin_tb.collected, collectables.type');
+        $this->db->select('bin_tb.idbin_tb, bin_tb.bin_id, bin_tb.created_at, bin_tb.gcid, bin_tb.lat, bin_tb.lng, bin_tb.collected, collectables.type');
         $this->db->from('bin_tb');
         $this->db->join('collectables', 'bin_tb.type = collectables.id', 'inner');
         $this->db->where('gcid', $gcid);
