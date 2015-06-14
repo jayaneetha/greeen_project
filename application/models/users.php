@@ -70,6 +70,19 @@ class Users extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function get_bin_locations($type_id, $gcid)
+    {
+        $this->db->select('bin_tb.idbin_tb, bin_tb.bin_id, bin_tb.gcid, bin_tb.lat, bin_tb.lng, bin_tb.collected, collectables.type');
+        $this->db->from('bin_tb');
+        $this->db->join('collectables', 'bin_tb.type = collectables.id', 'inner');
+        $this->db->where('gcid', $gcid);
+        $this->db->where('bin_tb.collected', 0);
+        if ($type_id != 0) {
+            $this->db->where('bin_tb.type', $type_id);
+        }
+        return $this->db->get()->result();
+    }
+
     public function get_PIN($id)
     {
         $this->db->select('pin');
@@ -78,9 +91,10 @@ class Users extends CI_Model
         return $this->db->get()->result()[0]->pin;
     }
 
-    public function set_item_collected($id){
-        $this->db->where('id',$id);
-        $this->db->update('individual',array('collected'=>1));
+    public function set_item_collected($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('individual', array('collected' => 1));
     }
 
 }

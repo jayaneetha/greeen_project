@@ -5,7 +5,7 @@
                 <a class="" href="#"><img src="<?php echo base_url('assests/images/Logo.png') ?>" class="img-responsive"
                                           width="150px"/></a>
             </div>
-            <div class="col-md-8"><h1 class="text-center">Collectors Dashboard</h1></div>
+            <div class="col-md-8"><h1 class="text-center">Collector Dashboard</h1></div>
             <div class="col-md-2">
                 <ul class="nav navbar-nav navbar-right" style="vertical-align: middle">
                     <li class="dropdown">

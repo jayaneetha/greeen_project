@@ -56,13 +56,13 @@ $this->load->view('partial/header');
                     </div>
                 </div>
             </div>
-            <table id="waste_locations" class="table table-responsive table-bordered">
+            <table id="waste_locations" class="table table-responsive table-bordered table-hover">
                 <thead>
-                <td>Type</td>
-                <td>Date</td>
-                <td>Time</td>
-                <td>Address</td>
-                <td>Action</td>
+                <td class="text-center">Type</td>
+                <td class="text-center">Date</td>
+                <td class="text-center">Time</td>
+                <td class="text-center" style="width: 225px;">Address</td>
+                <td class="text-center">Action</td>
                 </thead>
                 <tbody>
 
@@ -83,13 +83,13 @@ $this->load->view('partial/header');
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Enter PIN</h4>
+                <h4 class="modal-title" id="myModalLabel">Enter PIN<br><small>Please enter the PIN received by the requester on receiving garbage.</small></h4>
             </div>
             <form action="<?php echo base_url('user/enterPIN'); ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="">PIN:</label>
-                        <input type="text" name="PIN" id="PIN" class="form-control"/>
+                        <input type="text" name="PIN" id="PIN" class="form-control" placeholder="XXXX"/>
                         <input type="text" name="id" id="id" class="form-control hidden" hidden="hidden"/>
                     </div>
                 </div>
@@ -128,6 +128,7 @@ $this->load->view('partial/header');
         $('#id').val(item_id);
         $('#myModal').modal('toggle');
     });
+
     $(document).on('click', '.view_point', function () {
         var index = $(this).data('index');
         map.setCenter(markers[index].getPosition());
@@ -169,7 +170,7 @@ $this->load->view('partial/header');
         var marker = new google.maps.Marker({
             position: location,
             animation: google.maps.Animation.DROP,
-            map: map
+            map: map,
         });
         markers.push(marker);
     }

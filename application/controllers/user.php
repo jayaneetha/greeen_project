@@ -184,6 +184,35 @@ class User extends CI_Controller
         echo json_encode($waste_locations);
     }
 
+    public function get_bin_locations()
+    {
+        $type = $this->input->get('type');
+        $gcid = $this->input->get('gcid');
+        $this->load->model('users');
+        $type_id = 0;
+        switch ($type) {
+            case 'paper':
+                $type_id = 1;
+                break;
+            case 'glass':
+                $type_id = 2;
+                break;
+            case 'plastic':
+                $type_id = 3;
+                break;
+            case 'metal':
+                $type_id = 4;
+                break;
+            case 'ewaste':
+                $type_id = 5;
+                break;
+            default:
+                $type_id = 0;
+        }
+        $bin_locations = $this->users->get_bin_locations($type_id, $gcid);
+        echo json_encode($bin_locations);
+    }
+
     public function enterPIN()
     {
         $id = $this->input->post("id");
