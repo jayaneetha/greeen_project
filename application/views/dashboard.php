@@ -33,7 +33,7 @@ $this->load->view('partial/header');
         <?php $this->load->view('partial/navbar', $user); ?>
     </div>
     <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-7 col-md-7">
             <div class="row">
                 <div class="col-lg-12">
                     <h3>Collection Requests <br/>
@@ -69,7 +69,7 @@ $this->load->view('partial/header');
                 </tbody>
             </table>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-5 col-md-5">
 
             <div style="height: 500px;" class="well well-sm" id="map-canvas"></div>
         </div>
