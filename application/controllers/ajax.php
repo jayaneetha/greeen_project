@@ -49,10 +49,10 @@ class Ajax extends CI_Controller
 
     public function insert()
     {
-        $lng = $this->insert->post('lng');
-        $lat = $this->insert->post('lat');
-        $gcid = $this->insert->post('gcid');
-        $type = $this->insert->post('type');
+        $lng = $this->input->post('lng');
+        $lat = $this->input->post('lat');
+        $gcid = $this->input->post('gcid');
+        $type = $this->input->post('type');
 
         $this->load->model('users');
         $sessionid = $this->users->insert_session($lng, $lat, $gcid);
