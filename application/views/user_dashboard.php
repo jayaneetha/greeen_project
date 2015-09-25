@@ -88,6 +88,8 @@ $this->load->view('partial/header');
             <img src="<?php echo base_url('assests/images/male_user_icon_clip_art.jpg') ?>" alt="" class="img-rounded img-thumbnail img-responsive"/>
             <img src="<?php echo base_url('assests/images/male_user_icon_clip_art.jpg') ?>" alt="" class="img-rounded img-thumbnail img-responsive"/>
             <img src="<?php echo base_url('assests/images/male_user_icon_clip_art.jpg') ?>" alt="" class="img-rounded img-thumbnail img-responsive"/>
+            <img src="<?php echo base_url('assests/images/male_user_icon_clip_art.jpg') ?>" alt="" class="img-rounded img-thumbnail img-responsive"/>
+            <img src="<?php echo base_url('assests/images/male_user_icon_clip_art.jpg') ?>" alt="" class="img-rounded img-thumbnail img-responsive"/>
         </div>
         <div class="col-lg-2">
             <h2 class="text-center">Redeem your points at</h2>
