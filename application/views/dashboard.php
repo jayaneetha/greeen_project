@@ -48,11 +48,11 @@ $this->load->view('partial/header');
                 <div class="col-lg-12">
                     <div class="btn-group pull-left" style="padding-bottom: 5px">
                         <button data-type="all" class="btn-type btn btn-default">All</button>
-                        <button data-type="paper" class="btn-type btn btn-default">Paper</button>
-                        <button data-type="glass" class="btn-type btn btn-default">Glass</button>
-                        <button data-type="plastic" class="btn-type btn btn-default">Plastic</button>
-                        <button data-type="metal" class="btn-type btn btn-default">Metal</button>
-                        <button data-type="ewaste" class="btn-type btn btn-default">e-Waste</button>
+                        <button data-type="paper" class="btn-type btn btn-default">Mobile Phone</button>
+                        <button data-type="glass" class="btn-type btn btn-default">Computer Items</button>
+                        <button data-type="plastic" class="btn-type btn btn-default">CRT Monitor</button>
+                        <button data-type="metal" class="btn-type btn btn-default">TV & Radio</button>
+                        <button data-type="ewaste" class="btn-type btn btn-default">Others</button>
 <!--                        <a href="--><?php //echo base_url('index.php/user/dashboard_bin'); ?><!--" class="btn-type btn btn-default">Greeen Bin Only</a>-->
                     </div>
                 </div>
@@ -60,7 +60,7 @@ $this->load->view('partial/header');
 
             <table id="waste_locations" class="table table-responsive table-bordered table-hover">
                 <thead>
-                <td class="text-center">Type</td>
+<!--                <td class="text-center">Type</td>-->
                 <td class="text-center">Date</td>
                 <td class="text-center">Time</td>
                 <td class="text-center" style="width: 118px;">Address</td>
@@ -153,7 +153,13 @@ $this->load->view('partial/header');
     }
 
     function set_table_body(type, created_at, address, id, i) {
-        newRowContent = "<tr><td>" + type + "</td><td>" + created_at.substring(0, 10) + "</td><td>" + created_at.substring(11) + "</td><td>" + address + "</td>" +
+//        newRowContent = "<tr><td>" + type + "</td><td>" + created_at.substring(0, 10) + "</td><td>" + created_at.substring(11) + "</td><td>" + address + "</td>" +
+//        "<td><div class='btn-group'><button data-id='" + id + "' class='collected_btn btn btn-success btn-sm'><span class='glyphicon glyphicon-ok'></span> Mark as Collected</button>" +
+//        "<button data-index='" + i + "' style='margin-left:5px' class='view_point btn btn-default btn-sm'><span class='glyphicon glyphicon-play'></span></button></div></td>" +
+//        "</tr>";
+//        $("#waste_locations tbody").append(newRowContent);
+
+        newRowContent = "<tr><td>" + created_at.substring(0, 10) + "</td><td>" + created_at.substring(11) + "</td><td>" + address + "</td>" +
         "<td><div class='btn-group'><button data-id='" + id + "' class='collected_btn btn btn-success btn-sm'><span class='glyphicon glyphicon-ok'></span> Mark as Collected</button>" +
         "<button data-index='" + i + "' style='margin-left:5px' class='view_point btn btn-default btn-sm'><span class='glyphicon glyphicon-play'></span></button></div></td>" +
         "</tr>";

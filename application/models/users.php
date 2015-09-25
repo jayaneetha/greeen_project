@@ -161,4 +161,33 @@ class Users extends CI_Model
         $this->db->insert('recycle', $insert);
     }
 
+    public function update($user_id, $data)
+    {
+        $this->db->where('id', $user_id);
+        $this->db->update('users', $data);
+    }
+
+    public function new_get_user_details($user_id)
+    {
+        $this->db->from('users');
+        $this->db->where('id', $user_id);
+        return $this->db->get()->result()[0];
+    }
+
+    public function number_of_recycles($user_id)
+    {
+        $this->db->from('recycle');
+        $this->db->where('user_id',$user_id);
+       return $this->db->count_all_results();
+    }
+
+    public function recycles($id)
+    {
+        $this->db->select('egcollectables.type');
+        $this->db->from('egcollectables');
+        $this->db->join('recycle', 'egcollectables.id = recycle.e_type', 'inner');
+        $this->db->where('recycle.user_id',$id);
+        return $this->db->get()->result();
+    }
+
 }

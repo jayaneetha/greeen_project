@@ -7,5 +7,11 @@
       <schema-pattern>sessiondb.*</schema-pattern>
       <default-schemas>sessiondb.*</default-schemas>
     </data-source>
+    <data-source name="MySQL - brightron_greeen@localhost" uuid="b9509a10-59f1-41c8-a9e8-29e1625569b4">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>brightron_greeen.*</schema-pattern>
+      <default-schemas>information_schema.*</default-schemas>
+    </data-source>
   </component>
 </project>

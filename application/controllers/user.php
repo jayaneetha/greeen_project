@@ -21,6 +21,17 @@ class User extends CI_Controller
         session_start();
         $this->load->library('session');
         if ($this->session->userdata('logged_in') == FALSE) {
+            $this->load->view('new_login');
+        } else {
+            redirect('user/home', 'refresh');
+        }
+    }
+
+    public function collector()
+    {
+        session_start();
+        $this->load->library('session');
+        if ($this->session->userdata('logged_in') == FALSE) {
             $this->load->view('login');
         } else {
             redirect('user/dashboard', 'refresh');
@@ -136,7 +147,7 @@ class User extends CI_Controller
 
         if ($user->password == md5($password)) {
             $this->session->set_userdata(array('id' => $user->gcid, 'logged_in' => TRUE));
-            redirect('user', 'refresh');
+            redirect('user/dashboard', 'refresh');
         } else {
             $this->load->view('login');
         }
@@ -241,6 +252,81 @@ class User extends CI_Controller
 
     }
 
+
+    public function new_login()
+    {
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+
+        $this->load->model('users');
+        $userID = $this->users->get_id_from_phone_number($username);
+
+        $user = $this->users->new_get_user_details($userID);
+
+        if ($user->password == md5($password)) {
+            $this->session->set_userdata(array('id' => $userID, 'logged_in' => TRUE));
+            redirect('user/home', 'refresh');
+        } else {
+            $this->load->view('new_login');
+        }
+    }
+
+    public function new_login_first()
+    {
+        $username = $this->input->post('username');
+
+        $this->load->model('users');
+        $userID = $this->users->get_id_from_phone_number($username);
+        $this->load->view('change_password', array('user_id' => $userID));
+    }
+
+    public function update_user()
+    {
+        $this->load->model('users');
+
+        $first_name = $this->input->post('first_name');
+        $last_name = $this->input->post('last_name');
+        $password = $this->input->post('password');
+        $user_id = $this->input->post('user_id');
+        $data = array(
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'password' => md5($password)
+        );
+        $this->users->update($user_id, $data);
+
+        $this->session->set_userdata(array('id' => $user_id, 'logged_in' => TRUE));
+        redirect('user', 'refresh');
+
+
+    }
+
+    public function home()
+    {
+        session_start();
+        $this->load->library('session');
+        if ($this->session->userdata('logged_in') == FALSE) {
+            $this->load->view('new_login');
+        } else {
+            $id = $this->session->userdata('id');
+            $this->load->model('users');
+            $userDetails = $this->users->new_get_user_details($id);
+
+
+            $recycle_count = $this->users->number_of_recycles($id);
+
+            $recycles = $this->users->recycles($id);
+            $this->load->view('user_dashboard', array(
+                'user' => $userDetails,
+                'recycles'=>$recycles,
+                'recycle_count'=>$recycle_count
+            ));
+
+
+        }
+
+
+    }
 
 
 }
