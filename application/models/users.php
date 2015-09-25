@@ -116,13 +116,49 @@ class Users extends CI_Model
     {
         $pin = rand(1000, 9999);
         $data = array(
-            'gtype'=>$type,
-            'assigned'=>2,
-            'sessionId'=>$sessionid,
-            'pin'=>$pin,
-            'sms'=>0
+            'gtype' => $type,
+            'assigned' => 2,
+            'sessionId' => $sessionid,
+            'pin' => $pin,
+            'sms' => 0
         );
-        $this->db->insert('individual',$data);
+        $this->db->insert('individual', $data);
+    }
+
+    public function phone_number_exists($number)
+    {
+        $this->db->from('users');
+        $this->db->where('phone', $number);
+        if ($this->db->count_all_results() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function add_phone_number($number)
+    {
+        $insert = array('phone' => $number);
+        $this->db->insert('users', $insert);
+        return $this->db->insert_id();
+
+    }
+
+    public function get_id_from_phone_number($number)
+    {
+        $this->db->from('users');
+        $this->db->where('phone', $number);
+        return $this->db->get()->result()[0]->id;
+    }
+
+    public function add_item($user_id, $type, $collector)
+    {
+        $insert = array(
+            'user_id' => $user_id,
+            'e_type' => $type,
+            'collector' => $collector
+        );
+        $this->db->insert('recycle', $insert);
     }
 
 }

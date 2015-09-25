@@ -45,13 +45,13 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'live';
 $active_record = TRUE;
 
 $db['default']['hostname'] = '127.0.0.1:3306';
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'root';
-$db['default']['database'] = 'sessiondb';
+$db['default']['database'] = 'brightron_greeen';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -63,6 +63,22 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+
+$db['live']['hostname'] = 'localhost';
+$db['live']['username'] = 'brightron_greeen';
+$db['live']['password'] = 'greeen';
+$db['live']['database'] = 'brightron_greeen';
+$db['live']['dbdriver'] = 'mysqli';
+$db['live']['dbprefix'] = '';
+$db['live']['pconnect'] = TRUE;
+$db['live']['db_debug'] = TRUE;
+$db['live']['cache_on'] = FALSE;
+$db['live']['cachedir'] = '';
+$db['live']['char_set'] = 'utf8';
+$db['live']['dbcollat'] = 'utf8_general_ci';
+$db['live']['swap_pre'] = '';
+$db['live']['autoinit'] = TRUE;
+$db['live']['stricton'] = FALSE;
 
 
 /* End of file database.php */

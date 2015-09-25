@@ -59,4 +59,42 @@ class Ajax extends CI_Controller
         $this->users->insert($type, $sessionid);
         redirect('user', 'refresh');
     }
+
+    public function phone_dropped()
+    {
+        $phone_number = $this->input->post('phone_number');
+        $phone_number_exists = $this->users->phone_number_exists($phone_number);
+
+        $user_id = null;
+
+        if (!$phone_number_exists) {
+            $user_id = $this->users->add_phone_number($phone_number);
+        } else {
+            $user_id = $this->users->get_id_from_phone_number($phone_number);
+        }
+
+        $this->users->add_item($user_id, 1, 1);
+        echo 'Success';
+    }
+
+    public function add_recycle_from_phone()
+    {
+        $phone_number = $this->input->post('phone_number');
+        $phone_number_exists = $this->users->phone_number_exists($phone_number);
+
+        $user_id = null;
+
+        if (!$phone_number_exists) {
+            $user_id = $this->users->add_phone_number($phone_number);
+        } else {
+            $user_id = $this->users->get_id_from_phone_number($phone_number);
+        }
+
+        $type = $this->input->post('e_type');
+        $collector = $this->input->post('collector');
+        $this->users->add_item($user_id, $type, $collector);
+        echo 'Success';
+    }
+
+
 }
