@@ -84,7 +84,7 @@ $this->load->view('partial/header');
 
         </div>
         <div class="col-lg-1 ">
-            <h2 class="text-center">Top 10</h2>
+            <h2 class="text-center">Top 5</h2>
             <img src="<?php echo base_url('assests/images/male_user_icon_clip_art.jpg') ?>" alt="" class="img-rounded img-thumbnail img-responsive"/>
             <img src="<?php echo base_url('assests/images/male_user_icon_clip_art.jpg') ?>" alt="" class="img-rounded img-thumbnail img-responsive"/>
             <img src="<?php echo base_url('assests/images/male_user_icon_clip_art.jpg') ?>" alt="" class="img-rounded img-thumbnail img-responsive"/>
