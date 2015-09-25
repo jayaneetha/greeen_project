@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc786f23-34b5-42cb-887b-db2ed234f5df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/Dialog.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/captain.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/citizen.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/facebook-share-button.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/force.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/free_airline_ticket.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/male_user_icon_clip_art.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/master.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/newbie.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/twitter-share-button.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/images/win_cinema_tickets_sitges.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/change_password.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/new_login.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/user_dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard.php" afterPath="$PROJECT_DIR$/application/views/dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/user.php" afterPath="$PROJECT_DIR$/application/controllers/user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/users.php" afterPath="$PROJECT_DIR$/application/models/users.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GreenProject.iws" />
@@ -153,14 +135,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_dashboard.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_dashboard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/user_dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.4324324" vertical-offset="2152" max-vertical-offset="3315">
+            <state vertical-scroll-proportion="30.916666" vertical-offset="2152" max-vertical-offset="3315">
               <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#ul#0;n#div#2;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/config/database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15254237" vertical-offset="624" max-vertical-offset="1350">
+              <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -217,7 +209,6 @@
         <option value="$PROJECT_DIR$/application/views/partial/navbar.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/application/controllers/ajax.php" />
-        <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/views/login.php" />
         <option value="$PROJECT_DIR$/application/views/new_login.php" />
         <option value="$PROJECT_DIR$/application/views/change_password.php" />
@@ -225,6 +216,7 @@
         <option value="$PROJECT_DIR$/application/controllers/user.php" />
         <option value="$PROJECT_DIR$/application/models/users.php" />
         <option value="$PROJECT_DIR$/application/views/user_dashboard.php" />
+        <option value="$PROJECT_DIR$/application/config/database.php" />
       </list>
     </option>
   </component>
@@ -712,7 +704,13 @@
       <option name="project" value="LOCAL" />
       <updated>1443206402096</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Phase2&#10;">
+      <created>1443216335807</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1443216335807</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1110,14 +1108,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.375" vertical-offset="624" max-vertical-offset="1350">
-          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/new_login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.125" vertical-offset="204" max-vertical-offset="840">
@@ -1223,11 +1213,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/user_dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4324324" vertical-offset="2152" max-vertical-offset="3315">
+        <state vertical-scroll-proportion="30.916666" vertical-offset="2152" max-vertical-offset="3315">
           <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#ul#0;n#div#2;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15254237" vertical-offset="624" max-vertical-offset="1350">
+          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
